@@ -1,0 +1,46 @@
+body
+{
+    background-color: rgb(7, 88, 7);
+}
+main 
+{
+    background-color: rgb(255, 221, 31);
+    height: 500px;
+    width: 60%;
+    float: left;
+}
+section 
+{
+    background-color: rgb(255, 255, 255);
+    height: 50%;
+}
+aside
+{
+    background-color: teal;
+    height: 500px;
+    width: 40%;
+    float: right;
+    padding: 50px;
+    text-align: center;
+}
+
+div#computador
+{
+    background-color: red;
+    text-align: center;
+    border-radius: 50px;
+    padding: 20px;
+}
+div#jogador1
+{
+    background-color: rgb(134, 245, 31);
+    text-align: center;
+    border-radius: 50px;
+    padding: 20px;
+}
+h1
+{
+    text-align: center;
+    color: white;
+}
+
