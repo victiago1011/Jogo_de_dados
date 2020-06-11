@@ -1,46 +1,54 @@
-body
-{
-    background-color: rgb(7, 88, 7);
-}
-main 
-{
-    background-color: rgb(255, 221, 31);
-    height: 500px;
-    width: 60%;
-    float: left;
-}
-section 
-{
-    background-color: rgb(255, 255, 255);
-    height: 50%;
-}
-aside
-{
-    background-color: teal;
-    height: 500px;
-    width: 40%;
-    float: right;
-    padding: 50px;
-    text-align: center;
+body{
+    background-image: url("fundo.jpg");
+    background-repeat: space;
+    background-size: cover;
 }
 
 div#computador
 {
-    background-color: red;
+    background-color: rgba(255, 255, 255, 0.062);
     text-align: center;
-    border-radius: 50px;
+    border-radius: 25px;
     padding: 20px;
+    color: white;
+    
 }
 div#jogador1
 {
-    background-color: rgb(134, 245, 31);
+    background-color: rgba(255, 255, 255, 0.062);
     text-align: center;
-    border-radius: 50px;
+    border-radius: 25px;
     padding: 20px;
+    color: white;
+    
 }
 h1
 {
     text-align: center;
+    color: white;
+}
+#soma_atual
+{
+    color: white;
+    text-align: center;
+}
+#soma
+{
+    color: white;
+    text-align: center;
+}
+h5
+{
+    color: white;
+    text-align: center;
+}
+
+h4
+{
+    color: yellow;
+}
+h3
+{
     color: white;
 }
 
