@@ -88,7 +88,7 @@ function somar_dados()
   else
   {
     soma = valor1 + valor2;
-    document.getElementById("soma").innerHTML = "Sua Soma: "+soma;
+    /*document.getElementById("soma").innerHTML = "Sua Soma: "+soma;*/
     document.getElementById("btn_passar").disabled = false;
   }
 }
@@ -177,7 +177,7 @@ function somar_dados2()//Escolha do PC
   else
   {
     soma2 = valor3 + valor4;
-    document.getElementById("soma2").innerHTML = "Soma do PC: "+soma2;
+    /*document.getElementById("soma2").innerHTML = "Soma do PC: "+soma2;*/
     var resposta_pc = getRndInteger(1,2);
     
     if(resposta_pc == 1)
@@ -208,14 +208,14 @@ function somar_dados2()//Escolha do PC
     else
     {
       total2 = total2 + soma2;
-        document.getElementById("total_pc").innerHTML = "Total = "+ total2;
+      document.getElementById("total_pc").innerHTML = "Total = "+ total2;
 
-        if(total2 >= 20)
+      if(total2 >= 100)
         {
           alert("\n\n\nQue pena, não foi dessa vez! \n\n\nO Computador chegou aos 100 pontos e ganhou o jogo!\n\n");
           window.location.reload();
         }  
-        else
+      else
         {
           alert("\n\n\n\nSua vez!\n\n\n");       
           document.getElementById("btn_lancar").disabled = false;
