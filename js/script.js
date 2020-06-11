@@ -70,15 +70,17 @@ function somar_dados()
 
   if(valor1==1 && valor2==1)
   {
-    alert("Você perdeu todos os seus Pontos! \nHá dois dados com o número 1.");
+    alert("\n\n\nVocê perdeu todos os seus Pontos! \n\n\n\n\nHá dois dados com o número 1.");
     total = 0;
     document.getElementById("total_vc").innerHTML = "Total = "+ total;
+    document.getElementById("btn_lancar").disabled = true;
+    document.getElementById("turno").innerHTML = "Turno do Computador";
 
     lancar_dados_pc();
   }
   else if(valor1==1 || valor2==1)
   {
-    alert("Você perdeu a vez! \nHá um número igual a 1."); 
+    alert("\n\n\nVocê perdeu a vez! \n\n\n\n\nHá um número igual a 1."); 
     document.getElementById("btn_lancar").disabled = true;
     document.getElementById("turno").innerHTML = "Turno do Computador";
     lancar_dados_pc();
@@ -86,7 +88,7 @@ function somar_dados()
   else
   {
     soma = valor1 + valor2;
-    document.getElementById("soma").innerHTML = soma;
+    document.getElementById("soma").innerHTML = "Sua Soma: "+soma;
     document.getElementById("btn_passar").disabled = false;
   }
 }
@@ -98,6 +100,12 @@ function passar_vez_somar()
   document.getElementById("btn_lancar").disabled = true;
   document.getElementById("btn_passar").disabled = true;
   document.getElementById("turno").innerHTML = "Turno do Computador";
+
+  if(total >= 100)
+    {
+      alert("\n\n\n\nParabéns! Você ganhou o jogo!\n\n\n");
+      window.location.reload();
+    }
   
   lancar_dados_pc();
 }
@@ -147,29 +155,76 @@ function jogar_dado4()
   
 }
 
-function somar_dados2()
+function somar_dados2()//Escolha do PC
 { 
   var valor3 = Number(dado3);
   var valor4 = Number(dado4);
 
-   
-  if(valor3==1 || valor4==1)
+  if(valor3==1 && valor4==1)
   {
-    alert("O Computador perdeu a vez! \nPois jogou um número igual a 1.");
+    alert("\n\n\nO Computador perdeu todos os pontos! \n\n\n\nHá dois dados com o número 1.");
+    total2=0;
+    document.getElementById("total_pc").innerHTML = "Total = "+ total2;
+    document.getElementById("btn_lancar").disabled = false;
+    document.getElementById("turno").innerHTML = "Seu Turno";
+  }
+  else if(valor3==1 || valor4==1)
+  {
+    alert("\n\n\nO Computador perdeu a vez! \n\n\n\nPois jogou um número igual a 1.");
     document.getElementById("btn_lancar").disabled = false;
     document.getElementById("turno").innerHTML = "Seu Turno";
   }
   else
   {
     soma2 = valor3 + valor4;
-    document.getElementById("soma2").innerHTML = soma2;
-    total2 = total2 + soma2;
-    document.getElementById("total_pc").innerHTML = "Total = "+ total2;
-    document.getElementById("btn_lancar").disabled = false;
-    document.getElementById("turno").innerHTML = "Seu Turno";
-  }
+    document.getElementById("soma2").innerHTML = "Soma do PC: "+soma2;
+    var resposta_pc = getRndInteger(1,2);
+    
+    if(resposta_pc == 1)
+    {
+      if (soma2<9)
+      {
+        alert("\n\n\n\nO computador vai lançar novamente para tentar uma soma maior\n\n\n");
+        lancar_dados_pc();        
+      }
+      else
+      {
+        total2 = total2 + soma2;
+        document.getElementById("total_pc").innerHTML = "Total = "+ total2;
 
+        if(total2 >= 100)
+        {
+          alert("\n\n\n\nQue pena, não foi dessa vez! O Computador chegou aos 100 pontos e ganhou o jogo!\n\n\n");
+          window.location.reload();
+        }  
+        else
+        {
+          alert("\n\n\n\nSua vez!\n\n\n");       
+          document.getElementById("btn_lancar").disabled = false;
+          document.getElementById("turno").innerHTML = "Seu Turno";
+        }
+      }
+    }
+    else
+    {
+      total2 = total2 + soma2;
+        document.getElementById("total_pc").innerHTML = "Total = "+ total2;
+
+        if(total2 >= 20)
+        {
+          alert("\n\n\nQue pena, não foi dessa vez! \n\n\nO Computador chegou aos 100 pontos e ganhou o jogo!\n\n");
+          window.location.reload();
+        }  
+        else
+        {
+          alert("\n\n\n\nSua vez!\n\n\n");       
+          document.getElementById("btn_lancar").disabled = false;
+          document.getElementById("turno").innerHTML = "Seu Turno";
+        }
+    } 
+  }
 }
+
 
 
 
