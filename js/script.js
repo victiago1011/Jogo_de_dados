@@ -2,30 +2,33 @@ var dado1 = 0;
 var dado2 = 0;
 var soma = 0;
 var total=0;
+var giro1=0;
+var giro2=0;
+
 document.getElementById("btn_passar").disabled = true;
 function lancar_dados()
 {
-  jogar_dado1()
-  jogar_dado2()
-  somar_dados()
+  girar_dados_vc()
+  setTimeout(jogar_dado1, 1600)
+  setTimeout(jogar_dado2, 1600)
+  setTimeout(somar_dados, 2000)
 }
-  
-/*{
+
+function girar_dados_vc()
+{
   var i = 1;
   var temp1 = setInterval(function()
   {
     i++;
-    jogar_dado1()
-    jogar_dado2()
+    girar_dado1()
+    girar_dado2()
 
-    if (i==40)
+    if (i==15)
       {
         clearInterval(temp1);
       }
-
   }, 100);
-
-}*/
+}
 
 function jogar_dado1()
 {
@@ -40,7 +43,6 @@ function jogar_dado1()
   res1.innerHTML = "";
   img.setAttribute('src', 'img/' + dado1 + '.png');
   res1.appendChild(img);
- 
 }
 
 function jogar_dado2()
@@ -110,19 +112,45 @@ function passar_vez_somar()
   lancar_dados_pc();
 }
 
-// VEZ DO PC
+
+//****************************************  VEZ DO PC ****************************************************
+
+
 var dado3=0;
 var dado4=0;
 var soma2=0;
 var total2=0;
+var giro3=0;
+var giro4=0;
 
 function lancar_dados_pc()
 { 
-  setTimeout(jogar_dado3, 2000);
-  setTimeout(jogar_dado4, 2000);
-  setTimeout(somar_dados2, 2000);
+  setTimeout(girar_dados_pc, 1000)
+  setTimeout(jogar_dado3, 2700);
+  setTimeout(jogar_dado4, 2700);
+  setTimeout(somar_dados2, 3700);
   document.getElementById("btn_passar").disabled = true;
 }
+function girar_dados_pc()
+{
+  var i = 1;
+  var temp = setInterval(function()
+  {
+    i++;
+    girar_dado3()
+    girar_dado4()
+
+    if (i==15)
+      {
+        clearInterval(temp);
+      }
+  }, 100);
+}
+
+
+
+
+
 function jogar_dado3()
 {
   res3 = document.querySelector('div#figura3');
@@ -227,6 +255,68 @@ function somar_dados2()//Escolha do PC
 
 
 
+// ***************************************   GIRAR DADOS   ***************************************
+
+
+function girar_dado1()
+{
+  girar1 = document.querySelector('div#figura1');
+   
+  var img = document.createElement('img');
+  img.setAttribute('id','dado');
+  img.setAttribute('width',200);
+  img.setAttribute('height',200);
+
+  giro1 = getRndInteger(1,6);
+  girar1.innerHTML = "";
+  img.setAttribute('src', 'img/' + giro1 + '.png');
+  girar1.appendChild(img);
+}
+
+function girar_dado2()
+{
+  girar2 = document.querySelector('div#figura2');
+   
+  var img = document.createElement('img');
+  img.setAttribute('id','dado');
+  img.setAttribute('width',200);
+  img.setAttribute('height',200);
+
+  giro2 = getRndInteger(1,6);
+  girar2.innerHTML = "";
+  img.setAttribute('src', 'img/' + giro2 + '.png');
+  girar2.appendChild(img);
+}
+
+function girar_dado3()
+{
+  girar3 = document.querySelector('div#figura3');
+   
+  var img = document.createElement('img');
+  img.setAttribute('id','dado');
+  img.setAttribute('width',200);
+  img.setAttribute('height',200);
+
+  giro3 = getRndInteger(1,6);
+  girar3.innerHTML = "";
+  img.setAttribute('src', 'img/' + giro3 + '.png');
+  girar3.appendChild(img);
+}
+
+function girar_dado4()
+{
+  girar4 = document.querySelector('div#figura4');
+   
+  var img = document.createElement('img');
+  img.setAttribute('id','dado');
+  img.setAttribute('width',200);
+  img.setAttribute('height',200);
+
+  giro4 = getRndInteger(1,6);
+  girar4.innerHTML = "";
+  img.setAttribute('src', 'img/' + giro4 + '.png');
+  girar4.appendChild(img);
+}
 
 
 
