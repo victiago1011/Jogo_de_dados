@@ -5,6 +5,7 @@ var total=0;
 var giro1=0;
 var giro2=0;
 
+
 document.getElementById("btn_passar").disabled = true;
 function lancar_dados()
 {
@@ -69,12 +70,13 @@ function somar_dados()
 { 
   var valor1 = Number(dado1);
   var valor2 = Number(dado2);
+  var soma_dados=document.getElementById("soma_dados").innerHTML;
 
   if(valor1==1 && valor2==1)
   {
     alert("\n\n\nVocê perdeu todos os seus Pontos! \n\n\n\n\nHá dois dados com o número 1.");
     total = 0;
-    document.getElementById("total_vc").innerHTML = "Total = "+ total;
+    document.getElementById("total_vc").innerHTML = "Pontuação = "+ total;
     document.getElementById("btn_lancar").disabled = true;
     document.getElementById("turno").innerHTML = "Turno do Computador";
 
@@ -82,7 +84,7 @@ function somar_dados()
   }
   else if(valor1==1 || valor2==1)
   {
-    alert("\n\n\nVocê perdeu a vez! \n\n\n\n\nHá um número igual a 1."); 
+    alert("\n\n\nVocê perdeu a vez! \n\n\n\n\nHá um dado com número 1."); 
     document.getElementById("btn_lancar").disabled = true;
     document.getElementById("turno").innerHTML = "Turno do Computador";
     lancar_dados_pc();
@@ -90,7 +92,7 @@ function somar_dados()
   else
   {
     soma = valor1 + valor2;
-    /*document.getElementById("soma").innerHTML = "Sua Soma: "+soma;*/
+    soma_dados=Number(soma);
     document.getElementById("btn_passar").disabled = false;
   }
 }
@@ -198,7 +200,7 @@ function somar_dados2()//Escolha do PC
   }
   else if(valor3==1 || valor4==1)
   {
-    alert("\n\n\nO Computador perdeu a vez! \n\n\n\nPois jogou um número igual a 1.");
+    alert("\n\n\nO Computador perdeu a vez! \n\n\n\nPois jogou um dado com número 1.");
     document.getElementById("btn_lancar").disabled = false;
     document.getElementById("turno").innerHTML = "Seu Turno";
   }
@@ -218,7 +220,7 @@ function somar_dados2()//Escolha do PC
       else
       {
         total2 = total2 + soma2;
-        document.getElementById("total_pc").innerHTML = "Total = "+ total2;
+        document.getElementById("total_pc").innerHTML = "Pontuação = "+ total2;
 
         if(total2 >= 100)
         {
@@ -227,7 +229,7 @@ function somar_dados2()//Escolha do PC
         }  
         else
         {
-          alert("\n\n\n\nSua vez!\n\n\n");       
+          alert("\n\n\nSua vez!\n\nO computador decidiu passar a vez e somar "+soma2+" a sua pontuação");       
           document.getElementById("btn_lancar").disabled = false;
           document.getElementById("turno").innerHTML = "Seu Turno";
         }
