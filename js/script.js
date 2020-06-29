@@ -70,7 +70,7 @@ function somar_dados()
 { 
   var valor1 = Number(dado1);
   var valor2 = Number(dado2);
-  var soma_dados=document.getElementById("soma_dados").innerHTML;
+  
 
   if(valor1==1 && valor2==1)
   {
@@ -79,6 +79,7 @@ function somar_dados()
     document.getElementById("total_vc").innerHTML = "Pontuação = "+ total;
     document.getElementById("btn_lancar").disabled = true;
     document.getElementById("turno").innerHTML = "Turno do Computador";
+    document.getElementById("somadosdados").innerHTML = "";
 
     lancar_dados_pc();
   }
@@ -87,12 +88,13 @@ function somar_dados()
     alert("\n\n\nVocê perdeu a vez! \n\n\n\n\nHá um dado com número 1."); 
     document.getElementById("btn_lancar").disabled = true;
     document.getElementById("turno").innerHTML = "Turno do Computador";
+    document.getElementById("somadosdados").innerHTML = "";
     lancar_dados_pc();
   }
   else
   {
     soma = valor1 + valor2;
-    soma_dados=Number(soma);
+    document.getElementById("somadosdados").innerHTML = "Soma dos seus dados: "+soma;
     document.getElementById("btn_passar").disabled = false;
   }
 }
@@ -100,10 +102,12 @@ function somar_dados()
 function passar_vez_somar()
 {   
   total = total + soma;
-  document.getElementById("total_vc").innerHTML = "Total = "+ total;
+  document.getElementById("total_vc").innerHTML = "Pontuação = "+ total;
   document.getElementById("btn_lancar").disabled = true;
   document.getElementById("btn_passar").disabled = true;
   document.getElementById("turno").innerHTML = "Turno do Computador";
+  document.getElementById("somadosdados").innerHTML = "";
+
 
   if(total >= 100)
     {
@@ -194,13 +198,13 @@ function somar_dados2()//Escolha do PC
   {
     alert("\n\n\nO Computador perdeu todos os pontos! \n\n\n\nHá dois dados com o número 1.");
     total2=0;
-    document.getElementById("total_pc").innerHTML = "Total = "+ total2;
+    document.getElementById("total_pc").innerHTML = "Pontuação = "+ total2;
     document.getElementById("btn_lancar").disabled = false;
     document.getElementById("turno").innerHTML = "Seu Turno";
   }
   else if(valor3==1 || valor4==1)
   {
-    alert("\n\n\nO Computador perdeu a vez! \n\n\n\nPois jogou um dado com número 1.");
+    alert("\n\n\nO Computador perdeu a vez! \n\n\n\nHá um dado com número 1.");
     document.getElementById("btn_lancar").disabled = false;
     document.getElementById("turno").innerHTML = "Seu Turno";
   }
@@ -229,7 +233,7 @@ function somar_dados2()//Escolha do PC
         }  
         else
         {
-          alert("\n\n\nSua vez!\n\nO computador decidiu passar a vez e somar "+soma2+" a sua pontuação");       
+          alert("\n\n\nO computador decidiu passar a vez e somar "+soma2+" a sua pontuação\n\n\n");       
           document.getElementById("btn_lancar").disabled = false;
           document.getElementById("turno").innerHTML = "Seu Turno";
         }
@@ -238,7 +242,7 @@ function somar_dados2()//Escolha do PC
     else
     {
       total2 = total2 + soma2;
-      document.getElementById("total_pc").innerHTML = "Total = "+ total2;
+      document.getElementById("total_pc").innerHTML = "Pontuação = "+ total2;
 
       if(total2 >= 100)
         {
