@@ -247,7 +247,7 @@ function somar_dados2()//Escolha do PC
         }  
       else
         {
-          alert("\n\n\n\nSua vez!\n\n\n");       
+          alert("\n\n\nO computador decidiu somar "+soma2+" a sua pontuação e passar a vez"\n\n\n");       
           document.getElementById("btn_lancar").disabled = false;
           document.getElementById("turno").innerHTML = "Seu Turno";
         }
